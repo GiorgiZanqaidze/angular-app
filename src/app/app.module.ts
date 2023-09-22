@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GuestLayoutComponent } from './guest-layout/guest-layout.component';
-import { LoginComponent } from './guest-layout/login/login.component';
+import { GuestLayoutComponent } from './layouts/guest-layout/guest-layout.component';
+import { LoginComponent } from './layouts/guest-layout/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { SignUpComponent } from './guest-layout/sign-up/sign-up.component';
+import { SignUpComponent } from './layouts/guest-layout/sign-up/sign-up.component';
+import { UserDashboardComponent } from './layouts/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SignUpComponent } from './guest-layout/sign-up/sign-up.component';
     GuestLayoutComponent,
     LoginComponent,
     SignUpComponent,
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,
