@@ -4,16 +4,13 @@ import {GuestLayoutComponent} from "./layouts/guest-layout/guest-layout.componen
 import {LoginComponent} from "./layouts/guest-layout/login/login.component";
 import {SignUpComponent} from "./layouts/guest-layout/sign-up/sign-up.component";
 import {UserDashboardComponent} from "./layouts/user-dashboard/user-dashboard.component";
+import {AuthGuard} from "./services/auth.guard";
 
 const routes: Routes = [
   {
     path: "",
     redirectTo: 'guest/login',
-    pathMatch: 'full'
-  },
-  {
-    path: "guest",
-    redirectTo: 'guest/login',
+    pathMatch: 'full',
   },
   {
     path: 'guest',
@@ -22,17 +19,23 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
-        pathMatch: 'full'
       },
       {
         path: 'sign-up',
-        component: SignUpComponent
+        component: SignUpComponent,
       }
     ]
   },
   {
     path: 'authorized/dashboard',
     component: UserDashboardComponent,
+    data: {auth: true},
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "**",
+    redirectTo: "guest/login",
   }
 ];
 

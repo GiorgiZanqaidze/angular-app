@@ -8,6 +8,8 @@ import { LoginComponent } from './layouts/guest-layout/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { SignUpComponent } from './layouts/guest-layout/sign-up/sign-up.component';
 import { UserDashboardComponent } from './layouts/user-dashboard/user-dashboard.component';
+import {HttpClientModule} from "@angular/common/http";
+import {AuthGuard} from "./services/auth.guard";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { UserDashboardComponent } from './layouts/user-dashboard/user-dashboard.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
