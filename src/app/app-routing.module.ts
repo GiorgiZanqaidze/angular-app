@@ -29,8 +29,6 @@ const routes: Routes = [
   {
     path: 'authorized/dashboard',
     component: UserDashboardComponent,
-    data: {auth: true},
-    canActivate: [AuthGuard]
   },
 
   {

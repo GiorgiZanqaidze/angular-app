@@ -14,15 +14,11 @@ export class ApiService {
 
   constructor(private http: HttpClient, private router:Router) { }
 
+  baseUrl = "http://localhost:8000"
+
   registerUser(user: User) {
-    return this.http.post('http://localhost:8000/api/register', user, {
+    return this.http.post(`${this.baseUrl}/api/register`, user, {
       withCredentials: true,
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'X-Requested-With': 'XMLHttpRequest'
-      }
     })
   }
 
@@ -37,10 +33,10 @@ export class ApiService {
   }
 
   getAuthUser() {
-    return this.http.get('http://localhost:8000/api/user', {
+    return this.http.get(`${this.baseUrl}/api/user`, {
       withCredentials: true,
     }).pipe(map((user) => {
-      return !!user
+      return user
     }))
   }
 
