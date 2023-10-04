@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {GuestLayoutComponent} from "./layouts/guest-layout/guest-layout.component";
-import {LoginComponent} from "./layouts/guest-layout/login/login.component";
-import {SignUpComponent} from "./layouts/guest-layout/sign-up/sign-up.component";
+import {LoginComponent} from "./pages/login/login.component";
+import {SignUpComponent} from "./pages/sign-up/sign-up.component";
 import {UserDashboardComponent} from "./layouts/user-dashboard/user-dashboard.component";
-import {AuthGuard} from "./services/auth.guard";
+import {FriendChatComponent} from "./layouts/user-dashboard/friend-chat/friend-chat.component";
 
 const routes: Routes = [
   {
@@ -29,6 +29,12 @@ const routes: Routes = [
   {
     path: 'authorized/dashboard',
     component: UserDashboardComponent,
+    children: [
+      {
+        path: ':id',
+        component: FriendChatComponent,
+      }
+    ]
   },
 
   {

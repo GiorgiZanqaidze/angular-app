@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiService} from "../../../services/api.service";
-import {User} from "../../../services/user.interface";
+import {ApiService} from "../../services/api.service";
+import {User} from "../../services/user.interface";
 
 @Component({
   selector: 'app-sign-up',
