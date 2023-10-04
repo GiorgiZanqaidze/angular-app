@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {LoginUser, User} from "./user.interface";
-import {map, Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {User} from "./user.interface";
+import {map} from "rxjs";
 import axiosInstance from "../config/axios";
 import {Router} from "@angular/router";
 
@@ -14,10 +14,11 @@ export class ApiService {
 
   constructor(private http: HttpClient, private router:Router) { }
 
-  baseUrl = "http://localhost:8000"
+  user!: User
+
 
   registerUser(user: User) {
-    return this.http.post(`${this.baseUrl}/api/register`, user, {
+    return this.http.post("/api/register", user, {
       withCredentials: true,
     })
   }
@@ -33,9 +34,10 @@ export class ApiService {
   }
 
   getAuthUser() {
-    return this.http.get(`${this.baseUrl}/api/user`, {
+    return this.http.get(`/api/user`, {
       withCredentials: true,
-    }).pipe(map((user) => {
+    }).pipe(map((user: any) => {
+      this.user = user
       return user
     }))
   }

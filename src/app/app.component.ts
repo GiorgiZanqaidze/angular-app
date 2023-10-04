@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "./services/api.service";
 import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
+import {Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,8 @@ export class AppComponent implements OnInit{
   constructor(
       private apiService: ApiService,
       private http: HttpClient,
-      private router: Router) {
+      private router: Router,
+      ) {
 
   }
 

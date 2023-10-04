@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiService} from "../../../services/api.service";
+import {ApiService} from "../../services/api.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import axiosInstance from "../../../config/axios";
+import axiosInstance from "../../config/axios";
 import {Router} from "@angular/router";
 
 @Component({
