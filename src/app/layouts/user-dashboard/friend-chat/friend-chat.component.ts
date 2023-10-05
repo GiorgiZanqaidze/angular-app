@@ -26,7 +26,7 @@ export class FriendChatComponent implements OnInit{
 
     this.route.paramMap.subscribe((params) => {
       if (params.has('id')) {
-        const id: any | null = params.get('id') || 1;
+        const id: any | null = params.get('id');
         this.dashboardService.getChatMessages(id).subscribe(res => console.log(res));
       } else {
         console.log('dsds')
